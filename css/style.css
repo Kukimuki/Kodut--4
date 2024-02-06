@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(22, 76, 100);
+}
+
+.main {
+    border: 3px solid white;/* joone paksus */
+    margin: 20px auto; /* Seab 20 pikslise marginaali ülalt ja alt ning paneb keskele kast oleks horisontaalselt */
+    width: 600px;/* Määrab kasti laiuse */
+    height: 610px;/* Määrab kasti kõrguse */
+    position: relative;/* Määrab positsiooni suhtes teiste elementidega */
+}
+
+.main div {
+    height: 200px;
+    width: 200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 1px auto;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#red {
+    background-color: red;
+    animation-name: red-anim;
+    animation-duration: 5s;
+}
+
+#yellow {
+    background-color: yellow;   
+    animation-name: yellow-anim;
+    animation-duration: 8s; /* Ringi vilgumine */
+}
+
+#green {
+    background-color: green;
+    animation-name: green-anim;
+    animation-duration: 25s; /* Pöörlemise aeg või kiirus */
+}
+
+@keyframes red-anim {
+    0% {
+        transform: translateY(-200px); /* Liigub ülevalt alla */
+    }
+    100% {
+        transform: translateY(0px); /* Peatub kollase peal */
+    }
+}
+
+@keyframes yellow-anim {
+    0%, 25%, 50%, 75%, 100% {
+        opacity: 1; /* Algus, keskmine ja lõpp - täielikult nähtav */
+    }
+    25%, 75% {
+        opacity: 0; /* Pool peal - veidi läbipaistev */
+    }
+}
+
+@keyframes green-anim {
+    0% {
+        transform: rotateY(0deg); /* Alguse - mitte pöörlemine ülevalt alla */
+    }
+    100% {
+        transform: rotateY(3600deg); /* Lõpp - täielik pöörlemine tagasi */
+    }
+}
